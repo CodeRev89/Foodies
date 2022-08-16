@@ -1,15 +1,17 @@
-<tml>  
+<tml>  {%comment%}Use the appropriate tags for html5 and extend from base.html (create this){% endcomment%}
     <head>   <link href="register.css" rel="stylesheet" type="text/css" />
     <title>  
     Registration Page  
     </title>  
     </head>  
-    <body bgcolor="red">
+    <body bgcolor="red">{% comment %} avoid inline styles {% endcomment %}
         <form action="{% url 'register' %}" method="POST"> 
             {% csrf_token %}
         {{ form.as_p }} <input type="submit" value="register"> 
          </form> 
     <br>  
+
+    {% comment %} removed commented code and keep it clean {% endcomment %}
     <a 
     <!-- <form>   -->
       
@@ -24,3 +26,5 @@
     <!-- </for  m> -->
     </body>  
     </html>  
+
+

@@ -21,3 +21,13 @@ urlpatterns = [
     path("admin/", admin.site.urls),
     path("register/", user_register, name="register")
 ]
+
+
+# Since there is a custom css file for styling
+# 1) Configure the settings with the to have a STATIC_ROOT variable
+# 2) Import settings here in the urls
+# 3) Import the function static
+# 4) Add conditional statement to check debug and append the static to the urlpatterns
+# https://warehouse.joincoded.com/workshops/django-files/static-files/what-are-static-files
+# https://docs.djangoproject.com/en/4.1/howto/static-files/
+# https://docs.djangoproject.com/en/4.1/howto/static-files/#serving-files-uploaded-by-a-user-during-development
