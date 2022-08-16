@@ -19,5 +19,5 @@ from food.views import user_register
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("register/", user_register, name="register-user")
+    path("register/", user_register, name="register")
 ]

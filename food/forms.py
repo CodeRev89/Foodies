@@ -29,4 +29,4 @@ class Recipe(forms.ModelForm):
 class Ingredient(forms.ModelForm):
     class Meta:
         model =Ingredients
-        fields = ["recipes", "categories", "origin", "produce_type"]
+        fields = ["recipes", "categories", "origin", "produce_type", "name"]

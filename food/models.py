@@ -24,3 +24,4 @@ class Ingredients(models.Model):
     categories=models.ManyToManyField(Category, related_name="catergory")
     origin=models.CharField(max_length=50)
     produce_type=models.CharField(max_length=50)
+    name= models.CharField(max_length=500,default=00)
