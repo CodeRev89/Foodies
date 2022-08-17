@@ -1,34 +1,14 @@
-<html>  
-    <head>   <link href="register.css" rel="stylesheet" type="text/css" />
-    <title>  
-    Registration Page  
-    </title>  
-    </head>  
-    <body bgcolor="white">
-        <form action="{% url 'register' %}" method="POST"> 
-            {% csrf_token %}
-        {{ form.as_p }} <input type="submit" value="register"> 
-         </form> 
-    <br>  
-    <a  href="login"></a>
-    <from action="{%url 'login' %}" method="POST">
-        {% csrf_token %}
-        {{ form.as_p }} <input type="submit" value="login">
-    </from>
-    <br>
-    <a href="login"></a>
-
-    
-    <!-- <form>   -->
-      
-    <!-- <label> Username </label>         
-    <input type="text" name="Username" size="15"/> <br> <br>  
-    Password:  
-    <input type="Password" id="pass" name="pass"> <br>   
-    <br> 
-    Re-type password:  
-    <input type="Password" id="repass" name="repass"> <br> <br>  
-    <input type="button" value="Submit"/>   -->
-    <!-- </for  m> -->
-    </body>  
-    </html>  
+{% extends "base.html" %}
+{% load static %}
+{% block title %}
+  register
+{% endblock title %}
+{% block content %} 
+<form action="{% url 'register_page' %}" method="POST"> 
+    {% csrf_token %}
+{{ form.as_p }} <input type="submit" value="register"> 
+ </form> 
+<br>  
+<a href="{% url 'login_page' %}">already a user? sign in!</a>
+{%endblock content %}
+ 

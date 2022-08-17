@@ -1,27 +1,23 @@
 from django.db import models
 
 
-from django.db import models
-from django.contrib.auth.models import User
 
-# class User(User):
     
     
 class Recipe(models.Model):
    dish_name=models.CharField(max_length=50)
    calories=models.CharField(max_length= 50)
-   ingredients=models.CharField(max_length=250)
+   
   
        
-class Category(models.Model):
+class Catergory(models.Model):
    origin=models.CharField(max_length=50)
-   items_used=models.CharField(max_length=500)
-   recipes= models.ManyToManyField(Recipe, related_name="recipes")
+   recipes= models.ManyToManyField(Recipe, related_name="category")
    
    
 class Ingredients(models.Model):
     recipes=models.ManyToManyField(Recipe, related_name="Recipes")
-    categories=models.ManyToManyField(Category, related_name="catergory")
+    categories=models.ManyToManyField(Catergory, related_name="catergory")
     origin=models.CharField(max_length=50)
     produce_type=models.CharField(max_length=50)
     name= models.CharField(max_length=500,default=00)

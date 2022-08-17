@@ -1,6 +1,6 @@
 from django import forms
 from django.contrib.auth import get_user_model
-from .models import Recipe, Ingredients
+from .models import Recipe, Ingredients, Catergory
 
 
 
@@ -21,12 +21,18 @@ class UserLogin(forms.Form):
     username = forms.CharField(required=True)
     password = forms.CharField(required=True, widget=forms.PasswordInput())
     
+
+    
 class Recipe(forms.ModelForm):
     class Meta:
         model= Recipe
-        fields= ["dish_name", "calories", "ingredients"]
+        fields= ["dish_name", "calories"]
         
 class Ingredient(forms.ModelForm):
     class Meta:
         model =Ingredients
         fields = ["recipes", "categories", "origin", "produce_type", "name"]
+        
+class Catergory(forms.ModelForm):
+    model= Catergory
+    fields=["origin", "items_used", "recipes"]

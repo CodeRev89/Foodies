@@ -15,10 +15,13 @@ Including another URLconf
 """
 from django.contrib import admin
 from django.urls import path
-from food.views import user_register, user_login
+from food.views import user_register, user_login, user_homepage
 
 urlpatterns = [
     path("admin/", admin.site.urls),
-    path("register/", user_register, name="register"),
-    path("login/", user_login, name="login")
+    path("register/", user_register, name="register_page"),
+    path("login/", user_login, name="login_page"),
+    path("homepage/", user_homepage, name="home_page")
+    
+    
 ]
