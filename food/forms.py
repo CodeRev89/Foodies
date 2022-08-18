@@ -23,16 +23,17 @@ class UserLogin(forms.Form):
     
 
     
-class Recipe(forms.ModelForm):
+class RecipeForm(forms.ModelForm):
     class Meta:
         model= Recipe
         fields= ["dish_name", "calories"]
         
-class Ingredient(forms.ModelForm):
+class IngredientForm(forms.ModelForm):
     class Meta:
         model =Ingredients
         fields = ["recipes", "categories", "origin", "produce_type", "name"]
         
-class Catergory(forms.ModelForm):
-    model= Catergory
-    fields=["origin", "items_used", "recipes"]
+class Catergoryform(forms.ModelForm):
+    class Meta:
+     model= Catergory
+     fields=["origin", "recipes"]

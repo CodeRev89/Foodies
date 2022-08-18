@@ -1,8 +1,85 @@
 {% extends "base.html" %}
+<!-- 
 {% load static %}
 {% block title %}
   Home Page
 {% endblock title %}
-{% block content %} 
+
  HOME PAGE!!!
+ <form action="{% url 'create_recipe' %}" method="POST">
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Create Recipe" />
+  </form>
+  <form action="{% url 'create_catergory' %}" method="POST">
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Create Catergory" />
+  </form>
+  <form action="{% url 'create_ingrediants' %}" method="POST">
+    {% csrf_token %} {{ form }}
+    <input type="submit" value="Create Ingrediants" />
+  </form>
+  {% for recipe in recipes %} 
+  {{ recipe.dish_name}}
+  {{recipe.calories}}
+  {% endfor %}
+  {% for catergories in catergories %} 
+  {{ catergories.origin}}
+  {{catergories.recipes}}
+  {% endfor %}
+  {% for ingredients in ingredients %}
+  {{ ingredients.recipes }}
+  {{ingredients.categories}}
+  {{ingredients.origin}}
+  {{ingredients.produce_type}}
+  {{ingredients.name}}
+  {% endfor %}
+  
+ <a href="{% url 'logout_page' %}">Logout</a>
+  
+<!--  -->
+{% block content %} 
+<div>
+    <!-- recipes -->
+    <div class=" w-25"> 
+        <h2>Recipies List</h2>
+        <div class= "m-2" >
+            {% for recipe in recipes %} 
+            <div class="border p-3" >
+                <h4> <span class=" fw-bold">dish name: </span>  {{ recipe.dish_name}} </h4>
+                <p> <span class=" fw-bold">catergories: </span> {{ingredients.categories}}  </p>
+            </div>
+            {% endfor %}
+        </div>
+        <a class="btn-primary btn" href="{% url 'create_recipe' %}">create recipe</a>
+    </div>
+    <!-- ingredients -->
+    <divclass=" w-25"> 
+      <h2>ingrediants List</h2>
+      <div class= "m-2" >
+        {% for ingredients in ingredients %}
+          <div class="border p-3" >
+              <h4> <span class=" fw-bold">Ingrediants: </span>  </h4>
+              <p> <span class=" fw-bold">origin: </span> {{ingredients.origin}}  </p>
+              <p> <span class="fw-bold">produce type </span> {{ingredients.produce_type}}</p>
+              <p> <span class="fw-bold">name </span>  {{ingredients.name}}</p>
+          </div>
+          {% endfor %}
+      </div>
+      <a class="btn-primary btn" href="{% url 'create_ingrediants' %}">create ingrediants</a>
+    <!-- catergories -->
+    <divclass=" w-25"> 
+      <h2>catergories</h2>
+      <div class= "m-2" >
+         {% for catergories in catergories %} 
+          <div class="border p-3" >
+              <h4> <span class=" fw-bold">Origin: </span>  {{ catergories.origin}}</h4>
+              <p> <span class=" fw-bold">Recipes: </span> {{catergories.recipes}}  </p>
+          </div>
+          {% endfor %}
+      </div>
+      <a class="btn-primary btn" href="{% url 'create_catergory' %}">create recipe</a>
+  </div>
+    
+</div>
+<a class="btn-primary btn" href="{% url 'logout_page' %}">Logout</a>
 {% endblock content %}
